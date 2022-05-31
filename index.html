@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="slider">
+            <img src="img/social-share-black 1.png" alt="logo" class="slider-logo">
+            <ul class="slider-list">
+                <li class="slider-item">
+                    <a href="">
+                        QUẢN LÝ NGƯỜI DÙNG
+                    </a>
+                </li>
+                <li class="slider-item">
+                    <a href="">
+                        QUẢN LÝ HOÁ ĐƠN
+                    </a>
+                </li>
+                <li class="slider-item">
+                    <a href="" class="active">
+                        QUẢN LÝ PHIM
+                    </a>
+                </li>
+                <li class="slider-item">
+                    <a href="">
+                        QUẢN LÝ THỂ LOẠI
+                    </a>
+                </li>
+                <li class="slider-item">
+                    <a href="">
+                        QUẢN LÝ PHÒNG
+                    </a>
+                </li>
+                <li class="slider-item">
+                    <a href="" >
+                        QUẢN LÝ GHẾ
+                    </a>
+                </li>
+                <li class="slider-item">
+                    <a href="">
+                        THỐNG KÊ
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content-left">
+            <div class="border-bottom">
+                <div class="container">
+                    <div class="header">
+                        <div class="header-left">
+                            <a href="#" class="header-left-icon"><img src="img/Arrow 1.png" alt=""></a>
+                            <a href="#" class="header-left-icon"><img src="img/Arrow 2.png" alt=""></a>
+                        </div>
+                        <div class="header-search">
+                            <input type="text" style="padding-left: 20px;" class="header-search-input" placeholder="Search..." id="search-Film">
+                            <a href="#" class="header-search-icon"><i class="fa-solid fa-magnifying-glass" onclick="searchFilm()"></i></a>
+                        </div>
+                        <div class="header-right">
+                            <div class="header-language">
+                                <p>EN</p>
+                            </div>
+                            <div class="header-contact">
+                                <a href="#" class="header-contact-icon"><img src="img/Vector.png" alt=""
+                                        style="position: relative;top: 5px;"></a>
+                                <a href="#" class="header-contact-icon"><img src="img/user.png" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="content">
+                    <div class="d-flex-between">
+                        <h3 class="content-header">
+                            QUẢN LÝ PHIM
+                        </h3>
+                        <a href="#" class="add-btn" id="myBtnCreate">Thêm</a>
+                    </div>
+
+                    <div class="bg-table">
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th style="padding: 14px 0px;">#</th>
+                                    <th width="20%">Mã</th>
+                                    <th>Tên phim</th>
+                                    <th>Thể loại</th>
+                                    <th>Mô tả</th>
+                                    <th>Thời lượng</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="item-table">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- update modal -->
+    <div id="myModal" class="modal d-none">
+        <div class="modal-content modal-wrapper">
+            <div class="modal-header">
+                <h3 class="modal-heading">Chỉnh sửa phim</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="img/unsplash_jmURdhtm7Ng.png" alt="" class="modal-img">
+                <div class="form-control">
+                    <label for="name" class="form-control-label">Mã phim : </label>
+                    <input type="input" class="form-control-input" placeholder="Mã phim..." id="modal-update-id" readonly/>
+                    <label for="name" class="form-control-label">Tên phim : </label>
+                    <input type="input" class="form-control-input" placeholder="Tên phim..." id="modal-update-name" />
+                    <label for="name" class="form-control-label">Thể loại : </label>
+                    <input type="input" class="form-control-input" placeholder="Thể loại..." id="modal-update-categoryName" />
+                    <label for="name" class="form-control-label">Mô tả : </label>
+                    <input type="input" class="form-control-input" placeholder="Mô tả..." id="modal-update-description" />
+                    <label for="name" class="form-control-label">Đánh giá : </label>
+                    <input type="input" class="form-control-input" placeholder="Đánh giá..." id="modal-update-evaluate" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="form-control-btn" id="updateBtn" onclick="updateFilm()" >Cập nhật</a>
+            </div>
+        </div>
+    </div>
+    <!-- create modal -->
+    <div id="myModalCreate" class="modal d-none">
+        <div class="modal-content modal-wrapper">
+            <div class="modal-header">
+                <h3 class="modal-heading">Thêm Phim</h3>
+                <span class="close" id="closeCreate">&times;</span>
+            </div>
+            <div class="modal-body">
+                <img src="img/unsplash_jmURdhtm7Ng.png" alt="" class="modal-img">
+                <div class="form-control">
+                    <label for="name" class="form-control-label">Tên phim : </label>
+                    <input type="input" class="form-control-input" placeholder="Tên phim..." id="modal-create-name" />
+                    <label for="name" class="form-control-label">Thể loại : </label>
+                    <input type="input" class="form-control-input" placeholder="Thể loại..." id="modal-create-categoryName" />
+                    <label for="name" class="form-control-label">Mô Tả : </label>
+                    <input type="input" class="form-control-input" placeholder="Mô Tả..." id="modal-create-description" />
+                    <label for="name" class="form-control-label">Thời lượng : </label>
+                    <input type="input" class="form-control-input" placeholder="Thời lượng..." id="modal-create-evaluate" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="form-control-btn" id="createBtn">Thêm</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./js/helper.js"></script>
+    <script src="./js/modal.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

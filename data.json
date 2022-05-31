@@ -1,0 +1,39 @@
+{
+  "Films": [
+    {
+      "id": "4f51f1ac-5828-4dcd-926e-ffbe1400e4be",
+      "name": "Doctor Strange 2",
+      "categoryName": "Hành động, viễn tưởng",
+      "description": "Tiến sĩ Stephen Strange lạc vào thế giới khác...",
+      "evaluate": "169 phút"
+    },
+    {
+      "id": "4f51f1ac-5828-4dcd-926e-ffbe1400e4be",
+      "name": "Avatar 2",
+      "categoryName": "Hành động, viễn tưởng",
+      "description": "Avatar...",
+      "evaluate": "169 phút"
+    },
+    {
+      "id": "4f51f1ac-5828-4dcd-926e-ffbe1400e4be",
+      "name": "Reminiscence",
+      "categoryName": "Hành động, giả tưởng",
+      "description": "Cựu binh Nick Bannister...",
+      "evaluate": "169 phút"
+    },
+    {
+      "id": "4f51f1ac-5828-4dcd-926e-ffbe1400e4be",
+      "name": "Sing 2",
+      "categoryName": "Phim hoạt hình",
+      "description": "Sau sự sụp đổ và tồi tệ của nhà hát ban đầu...",
+      "evaluate": "169 phút"
+    },
+    {
+      "id": "4f51f1ac-5828-4dcd-926e-ffbe1400e4be",
+      "name": "Prisoners of the Ghostland",
+      "categoryName": "Hành động, phiêu lưu",
+      "description": "Một tên tội phạm khét tiếng...",
+      "evaluate": "169 phút"
+    }
+  ]
+}
